@@ -51,7 +51,7 @@ public class Main {
 
         int sum = 0; 
         int totalsum= 0; 
-
+	int[] match = new int[a.length];
         // MSE의 최소값을 구하는 코드가 들어갈 자리
         //for(int i=0;i<a.length;i++) {        	
         //    match[i] = MSE(a[i],b[i],x,y);            
