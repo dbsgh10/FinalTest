@@ -41,4 +41,4 @@
 <img width="528" alt="점선도" src="https://user-images.githubusercontent.com/62711350/85762499-c04faa80-b74e-11ea-8ab1-3641df3a0370.PNG" style="zoom:200%;" >
 
 
-
+* ##### 수업시간에 코딩한 코드를 통해 구현했으며 일부의 미완성 된 부분 제외하고 나머지 부분 구현하였음
