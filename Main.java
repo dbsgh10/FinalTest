@@ -94,14 +94,14 @@ public class Main {
 
     public static String[] crossOver(int[] selection) {
 
-        String[] crossover = new String[selection.length];
+        String[] inter = new String[selection.length];
    
         for(int i=0;i<selection.length/2;i+=2) {
             String bit1 = int8String(Integer.toBinaryString(selection[i]));
             String bit2 =  int8String(Integer.toBinaryString(selection[i+1]));
 
-            crossover[i] = bit1.substring(0,4) + bit2.substring(4,8);
-            crossover[i+1] = bit2.substring(0,4) + bit1.substring(4,8);
+            inter[i] = bit1.substring(0,4) + bit2.substring(4,8);
+            inter[i+1] = bit2.substring(0,4) + bit1.substring(4,8);
         }
 
    
@@ -109,19 +109,19 @@ public class Main {
             String bit1 = int8String(Integer.toBinaryString(selection[i]));
             String bit2 =  int8String(Integer.toBinaryString(selection[i+1]));
 
-            crossover[i] = bit1.substring(0,4) + bit2.substring(4,8);
-            crossover[i+1] = bit2.substring(0,4) + bit1.substring(4,8);
+            inter[i] = bit1.substring(0,4) + bit2.substring(4,8);
+            inter[i+1] = bit2.substring(0,4) + bit1.substring(4,8);
         }
 
-        return crossover;
+        return inter;
     }
 
-    public static int invert(String crossover) {
+    public static int invert(String inter) {
 
         Random r = new Random();
-        int a = Integer.parseInt(crossover,2);
+        int a = Integer.parseInt(inter,2);
 
-        for(int i=0;i<crossover.length();i++) {
+        for(int i=0;i<inter.length();i++) {
             double p = (double) 1/ (double)35;
             if(r.nextDouble()<p) {
                 a = 1 << i ^a;
@@ -131,10 +131,10 @@ public class Main {
         return a;
     }
 
-    public static int[] mutation(String[] crossover) {
-        int[] arr = new int[crossover.length];
-        for(int i=0;i<crossover.length;i++) {
-            arr[i] = invert(crossover[i]);
+    public static int[] mutation(String[] inter) {
+        int[] arr = new int[inter.length];
+        for(int i=0;i<inter.length;i++) {
+            arr[i] = invert(inter[i]);
         }
         return arr;
 
@@ -153,8 +153,8 @@ public class Main {
         for(int i=0; i<100000; i++) {
         	
             int[] selection = selection(a,b,x,y);  // 선택연산
-            String[] crossover = crossOver(selection);  // 교차연산
-            int[] mutation  = mutation(crossover);  // 돌연변이 연산
+            String[] inter = crossOver(selection);  // 교차연산
+            int[] mutation  = mutation(inter);  // 돌연변이 연산
             
             for(int j=0;j<a.length;j++) {
                 a[j] = mutation[j];
