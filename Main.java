@@ -162,7 +162,6 @@ public class Main {
             }
         }
 
-        System.out.print("함수 그래프 :" + t);
-        System.out.println("x + " + u); 
+        System.out.print("함수 그래프 :" + t + "x + " + u);
     }
 }
